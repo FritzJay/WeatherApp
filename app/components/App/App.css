@@ -1,0 +1,28 @@
+.app-component {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.city-state-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.city-state-header {
+  font-size: 45px;
+  font-weight: 100;
+  color: white;
+}
+
+.city-state-input {
+  margin: 0 0 1em 0;
+}
+
+.city-state-button {
+
+}
