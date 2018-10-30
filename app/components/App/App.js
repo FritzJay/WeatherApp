@@ -2,8 +2,7 @@ import React from 'react'
 import './App.css'
 
 import { Header } from '../Header/Header'
-import { Input } from '../Input/Input'
-import { Button } from '../Button/Button'
+import { CityState } from '../CityState/CityState'
 
 export const App = () => {
   return (
@@ -13,15 +12,7 @@ export const App = () => {
 
         <h1>Clever Title</h1>
 
-        <div className="zip-code-container horizontal hidden-on-small">
-
-          <Input placeholder="St. George, Utah" />
-
-          <Button className="success">
-            Get Weather
-          </Button>
-
-        </div>
+        <CityState direction="horizontal" hideOnSmall />
 
       </Header>
       
@@ -31,15 +22,7 @@ export const App = () => {
           Enter a City and State
         </h1>
 
-        <div className="zip-code-container vertical">
-
-          <Input placeholder="St. George, Utah" />
-
-          <Button className="success">
-            Get Weather
-          </Button>
-
-        </div>
+        <CityState direction="vertical" />
       
       </div>
 

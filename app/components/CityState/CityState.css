@@ -1,0 +1,15 @@
+.city-state-component {
+  display: grid;
+  align-items: center;
+  grid-gap: 1em;
+}
+
+.city-state-component.vertical {
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.city-state-component.horizontal {
+  grid-template-columns: 3fr 2fr;
+  justify-items: center;
+}

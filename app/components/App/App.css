@@ -19,19 +19,3 @@
   font-weight: 100;
   color: white;
 }
-
-.zip-code-container {
-  display: grid;
-  align-items: center;
-  grid-gap: 1em;
-}
-
-.zip-code-container.vertical {
-  grid-template-columns: 1fr;
-  justify-items: center;
-}
-
-.zip-code-container.horizontal {
-  grid-template-columns: 3fr 2fr;
-  justify-items: center;
-}
