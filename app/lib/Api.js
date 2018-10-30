@@ -7,7 +7,6 @@ export const fetchCurrentWeather = (city) => {
 
     .then((response) => {
 
-      console.log(response)
       return {
         data: response.data,
         error: null
@@ -15,13 +14,10 @@ export const fetchCurrentWeather = (city) => {
     })
 
     .catch((error) => {
-
-      console.log(error)
       return {
         data: null,
         error,
       }
-
     })
 }
 
@@ -31,15 +27,13 @@ export const fetch5DayForecast = (city) => {
   return axios.get(url)
 
     .then((response) => {
-
-      console.log(response)
       return response.data
-
     })
 
     .catch((error) => {
-
-      console.log(error)
-
+      return {
+        data: null,
+        error,
+      }
     })
 }
