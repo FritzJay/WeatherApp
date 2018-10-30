@@ -8,6 +8,6 @@ describe('Header tests', () => {
   it('renders children', () => {
     const header = shallow(<Header>Test</Header>)
 
-    expect(header.contains('Test')).toBeTrue
+    expect(header.contains('Test')).toBe(true)
   })
 })
