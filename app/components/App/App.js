@@ -17,13 +17,17 @@ export const App = () => {
           Enter a City and State
         </h1>
 
-        <input
-          className="city-state-input"
-          placeholder="St. George, Utah" />
+        <div className="zip-code-container">
 
-        <button className="city-state-button">
-          Get Weather
-        </button>
+          <input
+            className="input"
+            placeholder="St. George, Utah" />
+
+          <button className="get-weather-btn btn btn-success">
+            Get Weather
+          </button>
+
+        </div>
       
       </div>
 

@@ -1,5 +1,6 @@
 .app-component {
   height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -19,10 +20,13 @@
   color: white;
 }
 
-.city-state-input {
-  margin: 0 0 1em 0;
+.zip-code-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.city-state-button {
-
+.get-weather-btn {
+  margin-top: 1em;
 }
