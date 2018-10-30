@@ -21,12 +21,17 @@
 }
 
 .zip-code-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
   align-items: center;
+  grid-gap: 1em;
 }
 
-.get-weather-btn {
-  margin-top: 1em;
+.zip-code-container.vertical {
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.zip-code-container.horizontal {
+  grid-template-columns: 3fr 2fr;
+  justify-items: center;
 }

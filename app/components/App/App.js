@@ -2,13 +2,27 @@ import React from 'react'
 import './App.css'
 
 import { Header } from '../Header/Header'
+import { Input } from '../Input/Input'
+import { Button } from '../Button/Button'
 
 export const App = () => {
   return (
     <div className="app-component" style={{ backgroundImage: "url('app/images/background.svg')"}}>
 
       <Header>
+
         <h1>Clever Title</h1>
+
+        <div className="zip-code-container horizontal hidden-on-small">
+
+          <Input placeholder="St. George, Utah" />
+
+          <Button className="success">
+            Get Weather
+          </Button>
+
+        </div>
+
       </Header>
       
       <div className="city-state-container">
@@ -17,15 +31,13 @@ export const App = () => {
           Enter a City and State
         </h1>
 
-        <div className="zip-code-container">
+        <div className="zip-code-container vertical">
 
-          <input
-            className="input"
-            placeholder="St. George, Utah" />
+          <Input placeholder="St. George, Utah" />
 
-          <button className="get-weather-btn btn btn-success">
+          <Button className="success">
             Get Weather
-          </button>
+          </Button>
 
         </div>
       

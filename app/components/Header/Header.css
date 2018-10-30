@@ -1,9 +1,9 @@
 .header-component {
-  width: 100%;
   background-color: rgba(252,90,44,.89);
   color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
