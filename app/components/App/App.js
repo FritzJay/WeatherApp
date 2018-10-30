@@ -3,7 +3,7 @@ import './App.css'
 
 export const App = () => {
   return (
-    <div>
+    <div className="app" style={{ backgroundImage: "url('app/images/background.svg')"}}>
       Hello World
     </div>
   )
