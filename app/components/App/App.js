@@ -18,15 +18,16 @@ export const Header = ({ children }) => {
 }
 
 const TitlePage = (props) => {
+  const base64SVG = window.btoa(require('../../images/background.svg'))
+
   return (
     <div
       className="city-state-container"
+      style={{
+        backgroundImage: `url('data:image/svg+xml;base64,${base64SVG}')`,
+        backgroundRepeat: "repeat",
+      }}
     >
-
-      <InlineSVG
-        className="background"
-        src={require('../../images/background.svg')}
-      />
 
       <h1 className="city-state-header">
         Enter a City and State
