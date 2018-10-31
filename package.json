@@ -1,7 +1,7 @@
 {
-  "name": "react-fundamentals-curriculum",
+  "name": "Weather",
   "version": "1.0.0",
-  "description": "",
+  "description": "https://github.com/tylermcginnis/react-fundamentals-curriculum",
   "main": "index.js",
   "babel": {
     "presets": [
