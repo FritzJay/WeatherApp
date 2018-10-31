@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 const getUniqueDays = (list) => {
   const uniqueDays = []
   
@@ -20,13 +18,11 @@ const getUniqueDays = (list) => {
   })
 }
 
-export const fetch5DayForecast = (city) => {
+export const fetch5DayForecast = async (city) => {
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&type=accurate&APPID=${process.env.API_KEY}&units=imperial`
 
-  return axios.get(url)
-    .then((response) => {            
-      response.data.list = getUniqueDays(response.data.list)
-
-      return response.data
-    })
+  const response = await fetch(url)
+  const data = await response.json()
+  data.list = getUniqueDays(data.list)
+  return data 
 }

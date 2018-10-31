@@ -33,17 +33,16 @@ export const Forecast = ({ location, onSelect }) => {
   const [forecast, setForecast] = useState()
   const [errorMessage, setErrorMessage] = useState()
   
-  useEffect(() => {    
-    fetch5DayForecast(city)
-      .then((data) => {
-        if (data !== null) {
-          setForecast(data)
-        }
-      })
+  useEffect(async () => {
+    const data = await fetch5DayForecast(city)
       .catch((error) => {
         console.warn(error)
         setErrorMessage('Invalid Location')
       })
+
+    if (data !== null) {
+      setForecast(data)
+    }
   }, [location])
 
   if (errorMessage !== undefined) {
