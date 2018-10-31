@@ -20,7 +20,7 @@ export const Detail = ({ city, day }) => {
 
       <h2>{`max temp: ${Math.round(day.main.temp_max)}`}</h2>
       
-      <h2>{day.main.humidity}</h2>
+      <h2>{`humidity: ${day.main.humidity}`}</h2>
 
     </div>
   )
