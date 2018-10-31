@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import queryString from 'query-string'
 import { fetch5DayForecast } from '../../lib/Api'
 import { Day } from '../Day/Day'
@@ -31,15 +31,36 @@ export const Forecast = ({ location, onSelect }) => {
   const city = queryString.parse(location.search).city
 
   const [forecast, setForecast] = useState()
+  const [errorMessage, setErrorMessage] = useState()
   
   useEffect(() => {    
     fetch5DayForecast(city)
-    .then((data) => {
-      if (data !== null) {
-        setForecast(data)
-      }
-    })
+      .then((data) => {
+        if (data !== null) {
+          setForecast(data)
+        }
+      })
+      .catch((error) => {
+        console.warn(error)
+        setErrorMessage('Invalid Location')
+      })
   }, [location])
+
+  if (errorMessage !== undefined) {
+    return (
+      <div className="forecast-component">
+
+        <h2 className="error">
+          {errorMessage}
+        </h2>
+
+        <Link to="/">
+          Go Back
+        </Link>
+        
+      </div>
+    )
+  }
   
   if (forecast === undefined) {
     return (

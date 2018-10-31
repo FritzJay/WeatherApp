@@ -29,8 +29,4 @@ export const fetch5DayForecast = (city) => {
 
       return response.data
     })
-    .catch((error) => {
-      console.warn(error)
-      return null
-    })
 }
