@@ -21,7 +21,7 @@ const getUniqueDays = (list) => {
 }
 
 export const fetch5DayForecast = (city) => {
-  const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&type=accurate&APPID=${process.env.API_KEY}&units=imperial`
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&type=accurate&APPID=${process.env.API_KEY}&units=imperial`
 
   return axios.get(url)
     .then((response) => {            
