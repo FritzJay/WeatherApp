@@ -1,6 +1,5 @@
 .app-component {
-  height: 100vh;
-  min-height: 100vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
 }
@@ -21,7 +20,7 @@
 .header-component {
   background-color: rgba(252,90,44,.89);
   color: white;
-  padding: 5px;
+  padding: 5px 5px 5px 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

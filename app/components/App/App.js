@@ -24,8 +24,7 @@ const TitlePage = (props) => {
     <div
       className="city-state-container"
       style={{
-        backgroundImage: `url('data:image/svg+xml;base64,${base64SVG}')`,
-        backgroundRepeat: "repeat",
+        backgroundImage: `url("data:image/svg+xml;base64,${base64SVG}")`
       }}
     >
 
