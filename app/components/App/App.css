@@ -15,7 +15,19 @@
 }
 
 .city-state-header {
-  font-size: 45px;
-  font-weight: 100;
+  color: white;
+}
+
+.header-component {
+  background-color: rgba(252,90,44,.89);
+  color: white;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-component {
   color: white;
 }

@@ -2,9 +2,33 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './CityState.css'
 
-import { Input } from '../Input/Input'
-import { Button } from '../Button/Button'
-import { fetchCurrentWeather, fetch5DayForecast } from '../../lib/Api'
+const Button = (props) => {
+  const className = props.className
+    ? `button-component ${props.className}`
+    : 'button-component'
+
+  return (
+    <button
+      {...props}
+      className={className}>
+      
+      {props.children
+        ? props.children
+        : null}
+
+    </button>
+  )
+}
+
+export const Input = (props) => {
+  const className = props.className
+    ? `input-component ${props.className}`
+    : 'input-component'
+
+  return (
+    <input {...props} className={className} />
+  )
+}
 
 export const CityState = ({ direction, hideOnSmall }) => {
   const [cityState, setCityState] = useState('')
@@ -20,17 +44,15 @@ export const CityState = ({ direction, hideOnSmall }) => {
       <Input
         placeholder="St. George, Utah"
         onChange={(e) => setCityState(e.target.value)}
-        value={cityState}/>
+        value={cityState} />
 
-      <Link to={{
-        pathname: '/forecast',
-        search: `?city=${cityState}`
+      <Link
+        to={{
+          pathname: '/forecast',
+          search: `?city=${cityState}`
       }}>
 
-        <Button
-          className="success"
-          onClick={() => fetchCurrentWeather('utah')}
-        >
+        <Button className="success">
           Get Weather
         </Button>
 

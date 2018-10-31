@@ -1,0 +1,21 @@
+.forecast-component {
+  text-align: center;
+  color: gray;
+}
+
+.days-container {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.day-component {
+  margin: 1em;
+}
+
+.day-component img {
+  width: 125px;
+  height: 125px;
+}

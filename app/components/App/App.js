@@ -2,9 +2,18 @@ import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import './App.css'
 
-import { Header } from '../Header/Header'
 import { CityState } from '../CityState/CityState'
 import { Forecast } from '../Forecast/Forecast'
+
+export const Header = ({ children }) => {
+  return (
+    <div className="header-component">
+      {children
+        ? children
+        : null}
+    </div>
+  )
+}
 
 const TitlePage = (props) => {
   return (
