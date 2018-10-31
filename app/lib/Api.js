@@ -1,7 +1,22 @@
 import axios from 'axios'
 
+const getUniqueDays = (list) => {
+  const days = []
+  
+  return list.filter((item) => {
+    const day = item.dt_txt.split(' ')[0]
+
+    if (!days.includes(day)) {
+      days.push(day)
+      return true
+    }
+
+    return false
+  })
+}
+
 export const fetchCurrentWeather = (city) => {
-  const url =  `http://api.openweathermap.org/data/2.5/weather?q=${city}&type=accurate&APPID=${process.env.API_KEY}`
+  const url =  `http://api.openweathermap.org/data/2.5/weather?q=${city}&type=accurate&APPID=${process.env.API_KEY}&units=imperial`
 
   return axios.get(url)
     .then((response) => {
@@ -14,11 +29,14 @@ export const fetchCurrentWeather = (city) => {
 }
 
 export const fetch5DayForecast = (city) => {
-  const url = `http://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&type=accurate&APPID=${process.env.API_KEY}&cnt=5&units=imperial`
+  const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&type=accurate&APPID=${process.env.API_KEY}&units=imperial`
 
   return axios.get(url)
-    .then((response) => {
-      console.log(response)
+    .then((response) => {            
+      response.data.list = getUniqueDays(response.data.list)
+
+      console.log(response.data.list)
+
       return response.data
     })
     .catch((error) => {

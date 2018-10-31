@@ -48,17 +48,15 @@ export const Forecast = ({ location }) => {
 
   const [forecast, setForecast] = useState()
   
-  useEffect(() => {
-    if (forecast === null || forecast === undefined) {
-      fetch5DayForecast(city)
-      .then((data) => {
-        if (data !== null) {
-          setForecast(data)
-        }
-      })
-    }
-  })
-
+  useEffect(() => {    
+    fetch5DayForecast(city)
+    .then((data) => {
+      if (data !== null) {
+        setForecast(data)
+      }
+    })
+  }, [location])
+  
   if (forecast === undefined) {
     return (
       <div className="forecast-component">
@@ -66,7 +64,7 @@ export const Forecast = ({ location }) => {
       </div>
     )
   }
-  
+
   return (
     <div className="forecast-component">
 
@@ -74,7 +72,7 @@ export const Forecast = ({ location }) => {
 
       <div className="days-container">
 
-        {forecast.map((day) => (
+        {forecast.list.map((day) => (
           <Day
             key={day.dt}
             date={day.dt}
