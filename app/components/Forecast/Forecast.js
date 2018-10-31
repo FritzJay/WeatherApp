@@ -58,35 +58,33 @@ export const Forecast = ({ location }) => {
       })
     }
   })
-  
-  if (forecast !== undefined) {
+
+  if (forecast === undefined) {
     return (
       <div className="forecast-component">
-
-        <h1>{forecast.city.name}, {forecast.city.country}</h1>
-
-        <div className="days-container">
-
-          {forecast.map((day) => (
-            <Day
-              key={day.dt}
-              date={day.dt}
-              iconId={day.weather[0].icon}
-              description={day.weather[0].description}
-            />
-          ))}
-
-        </div>
-
-      </div>
-    )
-  } else {
-    return (
-      <div className="forecast-component">
-
         <Loading />
-        
       </div>
     )
   }
+  
+  return (
+    <div className="forecast-component">
+
+      <h1>{forecast.city.name}, {forecast.city.country}</h1>
+
+      <div className="days-container">
+
+        {forecast.map((day) => (
+          <Day
+            key={day.dt}
+            date={day.dt}
+            iconId={day.weather[0].icon}
+            description={day.weather[0].description}
+          />
+        ))}
+
+      </div>
+
+    </div>
+  )
 }
