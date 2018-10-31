@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import queryString from 'query-string'
 import { fetch5DayForecast } from '../../lib/Api'
 import { getDate } from '../../lib/utils'
@@ -26,16 +27,21 @@ const Loading = () => {
   return <h1>{text}</h1>
 }
 
-const Day = ({ date, iconId, description }) => {
+const Day = ({ date, iconId, description, city }) => {
   const englishDate = getDate(date)
+  const urlFriendlyCity = city.toLowerCase().replace(' ', '-')
 
   return (
     <div className="day-component">
 
-      <img
-        src={`app/images/icons/${iconId}.svg`}
-        alt={description}
-      />
+      <Link to={`/detail/${urlFriendlyCity}`}>
+
+        <img
+          src={`app/images/icons/${iconId}.svg`}
+          alt={description}
+        />
+
+      </Link>
 
       <h2>{englishDate}</h2>
 
@@ -78,6 +84,7 @@ export const Forecast = ({ location }) => {
             date={day.dt}
             iconId={day.weather[0].icon}
             description={day.weather[0].description}
+            city={forecast.city.name}
           />
         ))}
 

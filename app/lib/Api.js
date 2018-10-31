@@ -1,13 +1,18 @@
 import axios from 'axios'
 
 const getUniqueDays = (list) => {
-  const days = []
+  const uniqueDays = []
   
   return list.filter((item) => {
-    const day = item.dt_txt.split(' ')[0]
+    const date = new Date(item.dt * 1000)
+    const day = date.getDay()
+    const hour = date.getHours()
 
-    if (!days.includes(day)) {
-      days.push(day)
+    const isDayTime = hour > 9 && hour < 14
+    const isNewDay = !uniqueDays.includes(day)
+
+    if (isDayTime && isNewDay) {
+      uniqueDays.push(day)
       return true
     }
 

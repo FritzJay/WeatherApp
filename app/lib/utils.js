@@ -23,8 +23,8 @@ var monthsMap = {
   "11":"Dec"
 };
 
-export function getDate (unixTimestmap) {
-  var date = new Date(unixTimestmap * 1000);
+export function getDate (unixTimestamp) {
+  var date = new Date(unixTimestamp * 1000);
   var day = daysMap[date.getDay()]
   var month = monthsMap[date.getMonth()] + ' ' + date.getDate();
   return day + ', ' + month;
