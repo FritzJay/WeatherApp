@@ -10,12 +10,3 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
-
-.day-component {
-  margin: 1em;
-}
-
-.day-component img {
-  width: 125px;
-  height: 125px;
-}

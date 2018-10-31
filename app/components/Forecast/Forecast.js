@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import queryString from 'query-string'
 import { fetch5DayForecast } from '../../lib/Api'
-import { getDate } from '../../lib/utils'
+import { Day } from '../Day/Day'
 import './Forecast.css'
 
 const Loading = () => {
@@ -27,29 +27,7 @@ const Loading = () => {
   return <h1>{text}</h1>
 }
 
-const Day = ({ date, iconId, description, city }) => {
-  const englishDate = getDate(date)
-  const urlFriendlyCity = city.toLowerCase().replace(' ', '-')
-
-  return (
-    <div className="day-component">
-
-      <Link to={`/detail/${urlFriendlyCity}`}>
-
-        <img
-          src={`app/images/icons/${iconId}.svg`}
-          alt={description}
-        />
-
-      </Link>
-
-      <h2>{englishDate}</h2>
-
-    </div>
-  )
-}
-
-export const Forecast = ({ location }) => {
+export const Forecast = ({ location, onSelect }) => {
   const city = queryString.parse(location.search).city
 
   const [forecast, setForecast] = useState()
@@ -71,21 +49,36 @@ export const Forecast = ({ location }) => {
     )
   }
 
+  const cityName = `${forecast.city.name}, ${forecast.city.country}`
+  const urlFriendlyCity = cityName
+                            .toLowerCase()
+                            .replace(' ', '-')
+                            .replace(',', '')
+
+
   return (
     <div className="forecast-component">
 
-      <h1>{forecast.city.name}, {forecast.city.country}</h1>
+      <h1>{cityName}</h1>
 
       <div className="days-container">
 
         {forecast.list.map((day) => (
-          <Day
+          <Link
             key={day.dt}
-            date={day.dt}
-            iconId={day.weather[0].icon}
-            description={day.weather[0].description}
-            city={forecast.city.name}
-          />
+            to={`/detail/${urlFriendlyCity}`}
+            onClick={() => onSelect({
+              city: cityName,
+              day,
+            })}
+          >
+
+            <Day
+              city={cityName}
+              day={day}
+            />
+
+          </Link>
         ))}
 
       </div>

@@ -1,0 +1,13 @@
+.day-component {
+  margin: 1em;
+}
+
+.day-component img {
+  width: 125px;
+  height: 125px;
+}
+
+.day-component h2 {
+  color: gray;
+  text-decoration: none;
+}

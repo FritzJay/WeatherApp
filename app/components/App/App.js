@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import './App.css'
 
 import { CityState } from '../CityState/CityState'
 import { Forecast } from '../Forecast/Forecast'
+import { Detail } from '../Detail/Detail'
 
 export const Header = ({ children }) => {
   return (
@@ -36,6 +37,8 @@ const TitlePage = (props) => {
 }
 
 export const App = () => {
+  const [ detail, setDetail ] = useState()
+
   return (
     <div className="app-component">
 
@@ -54,7 +57,21 @@ export const App = () => {
         
         <Route exact path="/" component={TitlePage} />
 
-        <Route path="/forecast" component={Forecast} />
+        <Route path="/forecast" render={(props) => (
+          <Forecast
+            {...props}
+            onSelect={(selectedDay) => setDetail(selectedDay)}
+          />
+         )} />
+        )} />
+
+        <Route path="/detail/" render={(props) => (
+          <Detail
+            {...props}
+            city={detail.city}
+            day={detail.day}
+          />
+        )} />
 
         <Route render={() => <p>404 - Page not found</p>} />
 

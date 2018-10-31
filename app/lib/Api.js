@@ -20,27 +20,12 @@ const getUniqueDays = (list) => {
   })
 }
 
-export const fetchCurrentWeather = (city) => {
-  const url =  `http://api.openweathermap.org/data/2.5/weather?q=${city}&type=accurate&APPID=${process.env.API_KEY}&units=imperial`
-
-  return axios.get(url)
-    .then((response) => {
-      return response.data
-    })
-    .catch((error) => {
-      console.warn(error)
-      return null
-    })
-}
-
 export const fetch5DayForecast = (city) => {
   const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&type=accurate&APPID=${process.env.API_KEY}&units=imperial`
 
   return axios.get(url)
     .then((response) => {            
       response.data.list = getUniqueDays(response.data.list)
-
-      console.log(response.data.list)
 
       return response.data
     })
