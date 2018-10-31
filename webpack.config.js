@@ -23,6 +23,8 @@ module.exports = {
       { test: /\.(js)$/, use: 'babel-loader' },
       { test: /\.(jsx)$/, use: 'babel-loader' },
       { test: /\.css$/, use: [ 'style-loader', 'css-loader' ]},
+      { test: /\.svg$/, loader: 'svg-inline-loader' }
+
     ],
   },
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',

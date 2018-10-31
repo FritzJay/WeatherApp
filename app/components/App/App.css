@@ -5,6 +5,18 @@
   flex-direction: column;
 }
 
+.app-component .background {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+}
+
+.app-component .background svg {
+  width: 100%;
+  height: 100%;
+}
+
 .city-state-container {
   height: 100%;
   display: flex;

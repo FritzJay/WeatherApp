@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import './App.css'
+import InlineSVG from 'svg-inline-react'
 
 import { CityState } from '../CityState/CityState'
 import { Forecast } from '../Forecast/Forecast'
 import { Detail } from '../Detail/Detail'
+import './App.css'
 
 export const Header = ({ children }) => {
   return (
@@ -20,8 +21,12 @@ const TitlePage = (props) => {
   return (
     <div
       className="city-state-container"
-      style={{ backgroundImage: "url('app/images/background.svg')"}}
     >
+
+      <InlineSVG
+        className="background"
+        src={require('../../images/background.svg')}
+      />
 
       <h1 className="city-state-header">
         Enter a City and State
@@ -44,7 +49,7 @@ export const App = () => {
 
       <Header>
 
-        <h1>Clever Title</h1>
+        <h1>Weather</h1>
 
         <CityState
           direction="horizontal"
