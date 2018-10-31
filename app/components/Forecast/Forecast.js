@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import queryString from 'query-string'
 import { fetch5DayForecast } from '../../lib/Api'
 import { Day } from '../Day/Day'

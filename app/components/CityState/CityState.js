@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import './CityState.css'
 
 const Button = (props) => {
@@ -30,33 +29,34 @@ export const Input = (props) => {
   )
 }
 
-export const CityState = ({ direction, hideOnSmall }) => {
+export const CityState = ({ history, direction, hideOnSmall }) => {
   const [cityState, setCityState] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
 
   return (
     <div
-      className={`city-state-component ${direction}${hideOnSmall
-        ? ' hidden-on-small'
-        : ''
-      }`}
+      className={`city-state-component ${direction}${hideOnSmall ? ' hidden-on-small' : ''}`}
     >
+
+      {errorMessage !== '' && <h2 className="error">{errorMessage}</h2>}
 
       <Input
         placeholder="St. George, Utah"
         onChange={(e) => setCityState(e.target.value)}
         value={cityState} />
 
-      <Link
-        to={{
-          pathname: '/forecast',
-          search: `?city=${cityState}`
-      }}>
-
-        <Button className="success">
-          Get Weather
-        </Button>
-
-      </Link>
+      <Button
+        className="success"
+        onClick={() => {
+          if (cityState === '') {
+            setErrorMessage('Enter a location')
+          } else {
+            history.push(`/forecast?city=${cityState}`)
+          }
+        }}
+      >
+        Get Weather
+      </Button>
 
     </div>
   )

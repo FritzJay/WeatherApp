@@ -14,6 +14,11 @@
   justify-items: center;
 }
 
+.city-state-component .error {
+  font-weight: bold;
+  color: rgb(83, 33, 0);
+}
+
 .button-component {
   display: inline-block;
   padding: 6px 12px;
