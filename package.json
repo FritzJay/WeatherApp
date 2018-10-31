@@ -24,7 +24,7 @@
     "test": "jest",
     "start": "webpack-dev-server --open",
     "build": "NODE_ENV='production' webpack",
-    "build-window": "SET NODE_ENV='production' && webpack",
+    "build-windows": "SET NODE_ENV='production' && webpack",
     "deploy": "npm run build && firebase deploy",
     "deploy-windows": "npm run build-windows && firebase deploy"
   },
