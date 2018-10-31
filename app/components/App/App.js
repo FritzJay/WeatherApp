@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Link, Route, Switch } from 'react-router-dom'
 import InlineSVG from 'svg-inline-react'
 
 import { CityState } from '../CityState/CityState'
@@ -49,7 +49,9 @@ export const App = () => {
 
       <Header>
 
-        <h1>Weather</h1>
+        <Link to="/">
+          <h1>Weather</h1>
+        </Link>
 
         <CityState
           direction="horizontal"
