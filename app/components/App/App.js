@@ -47,18 +47,21 @@ export const App = () => {
   return (
     <div className="app-component">
 
-      <Header>
+      <Route render={(props) => (
+        <Header>
 
-        <Link to="/">
-          <h1>Weather</h1>
-        </Link>
+          <Link to="/">
+            <h1>Weather</h1>
+          </Link>
 
-        <CityState
-          direction="horizontal"
-          hideOnSmall
-        />
+          <CityState
+            {...props}
+            direction="horizontal"
+            hideOnSmall
+          />
 
-      </Header>
+        </Header>
+      )} />
 
       <Switch>
         

@@ -38,7 +38,7 @@ export const CityState = ({ history, direction, hideOnSmall }) => {
       className={`city-state-component ${direction}${hideOnSmall ? ' hidden-on-small' : ''}`}
     >
 
-      {errorMessage !== '' && <h2 className="error">{errorMessage}</h2>}
+      {errorMessage !== '' && hideOnSmall === false && <h2 className="error">{errorMessage}</h2>}
 
       <Input
         placeholder="St. George, Utah"
