@@ -31,14 +31,19 @@ export const Input = (props) => {
 
 export const CityState = ({ history, direction, hideOnSmall }) => {
   const [cityState, setCityState] = useState('')
-  const [errorMessage, setErrorMessage] = useState('')
+  const [error, setError] = useState('')
 
   return (
     <div
       className={`city-state-component ${direction}${hideOnSmall ? ' hidden-on-small' : ''}`}
     >
 
-      {errorMessage !== '' && hideOnSmall === false && <h2 className="error">{errorMessage}</h2>}
+      {
+        (error !== '' && hideOnSmall === undefined) &&
+        <p className="error-message">
+          {error}
+        </p>
+      }
 
       <Input
         placeholder="St. George, Utah"
@@ -49,7 +54,7 @@ export const CityState = ({ history, direction, hideOnSmall }) => {
         className="success"
         onClick={() => {
           if (cityState === '') {
-            setErrorMessage('Enter a location')
+            setError('Enter a location')
           } else {
             history.push(`/forecast?city=${cityState}`)
           }

@@ -28,16 +28,16 @@ const Loading = () => {
 }
 
 export const Forecast = ({ location, onSelect }) => {
-  const city = queryString.parse(location.search).city
-
   const [forecast, setForecast] = useState()
-  const [errorMessage, setErrorMessage] = useState()
+  const [error, setError] = useState()
   
   useEffect(async () => {
+    const city = queryString.parse(location.search).city
+
     const data = await fetch5DayForecast(city)
-      .catch((error) => {
-        console.warn(error)
-        setErrorMessage('Invalid Location')
+      .catch((err) => {
+        console.warn(err)
+        setError('Invalid Location')
       })
 
     if (data !== null) {
@@ -45,15 +45,18 @@ export const Forecast = ({ location, onSelect }) => {
     }
   }, [location])
 
-  if (errorMessage !== undefined) {
+  if (error !== undefined) {
     return (
       <div className="forecast-component">
 
-        <h2 className="error">
-          {errorMessage}
+        <h2
+          className="error-message"
+          style={{margin: '1em'}}
+        >
+          {error}
         </h2>
 
-        <Link to="/">
+        <Link className="error-link" to="/">
           Go Back
         </Link>
         
